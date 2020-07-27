@@ -5,6 +5,10 @@
 //
 //   go generate ./...
 //
+// For more information, see the project's home page at:
+//
+//   https://github.com/PennState/fileconst
+//
 
 package something
 
