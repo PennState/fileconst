@@ -1,0 +1,39 @@
+= fileconst
+
+Turns text file contents into Go constants
+
+When you're writing code that includes text constants for SQL or other
+structured text as constants, you don't get the benefit of your IDE or
+text editors syntax high-lighting.  This program simply reads the
+contents of one or more text files and generates a file (per package)
+that contains constants assigned to these constants.
+
+== Installation
+
+Install this package from source using the following command:
+
+[source, bash, indent=4]
+----
+go install -v github.com/PennState/fileconst/cmd/fileconst@<version>
+----
+
+== Usage
+
+There are a couple conventions used to make this processing easier:
+
+* The filename becomes the constant name
+* The (Go single-line style) top-of-block comment in the file becomes
+  the top-of-block comment for the resulting constant.
+
+Once you've installed `fileconst`, add the following Go directive
+
+[source, go, indent=4]
+----
+//go:generate fileconst -dir ./sql -ext sql
+----
+
+This command indicates that all files with the extension `sql` in the
+subdirectory `./sql` should be converted into Go constants.  If your
+package has a `doc.go` file that's an ideal spot to add this directive.
+the resulting Go file will be placed in the package's directory and will
+be named `fileconst_gen.go`.
