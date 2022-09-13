@@ -1,6 +1,16 @@
 = fileconst
 
-Turns text file contents into Go constants
+[DEPRECATED] - Being able to compile the contents of external files
+into a Go binary is still useful but there's now an official way to
+accomplish this functionality.  At this point you should be using a
+version of Go greater than v1.16, so the Standard Library's
+https://pkg.go.dev/embed[embed] package.  The Go Team's release
+announcement for v1.16 also includes a link to this
+https://blog.carlmjohnson.net/post/2021/how-to-use-go-embed/[blog post]
+which provides more information on how to use this library.
+
+
+Turns text file contents into Go constants.
 
 When you're writing code that includes text constants for SQL or other
 structured text as constants, you don't get the benefit of your IDE or
